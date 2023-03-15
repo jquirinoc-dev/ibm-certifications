@@ -1,0 +1,89 @@
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.left-login-form {
+    flex: 1;
+    background-color: var(--primary-dark-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h1 {
+    color: white;
+    font-size: 5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 300px;
+    position: relative;
+}
+
+.form-group label {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: var(--form-label-color);
+}
+
+.form-group input {
+    padding: 0.6rem;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--form-text-color);
+    background-color: var(--form-input-background);
+    border-bottom: 1px solid var(--form-stroke);
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+#username {
+    margin-bottom: 0.5rem;
+}
+
+.bi.bi-eye {
+    position: absolute;
+    right: 0.75rem;
+    top: 2.3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    fill: var(--form-text-color);
+}
+
+.right-ibm-logo {
+    width: 55%;
+    background-color: var(--main-ibm-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.right-ibm-logo img {
+    width: 50%;
+}
+
+.right-ibm-logo h3 {
+    margin: 1rem 0 0 0;
+    color: white;
+    font-weight: 400;
+    font-size: 2rem;
+}

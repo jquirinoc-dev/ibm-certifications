@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+
+  --primary-dark-background: #161616;
+  --main-ibm-blue: #1F70C1;
+  --form-input-background: #262626;
+  --form-stroke: #6F6F6F;
+  --form-text-color: #F4F4F4;
+  --form-label-color: #C6C6C6;
+  font-family: 'IBM Plex Sans';
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+}
