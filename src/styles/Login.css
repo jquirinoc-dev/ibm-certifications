@@ -78,12 +78,13 @@
 }
 
 .right-ibm-logo img {
-    width: 50%;
+    width: 45%;
 }
 
 .right-ibm-logo h3 {
     margin: 1rem 0 0 0;
     color: white;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
 }
