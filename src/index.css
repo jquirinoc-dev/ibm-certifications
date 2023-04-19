@@ -6,6 +6,7 @@
   --main-ibm-blue: #0F62FE;
   --form-input-background: #262626;
   --form-stroke: #6F6F6F;
+  --grey-highlight: #393939;
   --form-text-color: #F4F4F4;
   --form-label-color: #C6C6C6;
   font-family: 'IBM Plex Sans';
@@ -14,4 +15,5 @@
 
 body {
   margin: 0;
+  background-color: var(--primary-dark-background);
 }
