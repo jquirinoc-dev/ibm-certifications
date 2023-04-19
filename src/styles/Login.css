@@ -7,12 +7,12 @@
 }
 
 
-.login-wrapper {
+.login-wrapper, .signup-wrapper {
     display: flex;
     height: 100vh;
 }
 
-.left-login-form {
+.left-login-form, .right-signup-form {
     flex: 1;
     background-color: var(--primary-dark-background);
     display: flex;
@@ -23,12 +23,23 @@
     transition: all 0.2s ease;
 }
 
-.login-form {
+.login-form, .signup-form {
     display: flex;
     flex-direction: column;
 }
 
+.signup-form {
+    margin-bottom: 100px;
+}
+
 .login-form h1 {
+    color: white;
+    font-size: 5.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.signup-form h1 {
     color: white;
     font-size: 5.5rem;
     font-weight: 300;
@@ -81,11 +92,19 @@
     opacity: 0;
 }
 
-.bi.bi-eye.active {
+#login-password .bi.bi-eye.active {
     opacity: 1;
 }
 
-.login-bottom-buttons {
+#signup-password .bi.bi-eye.active {
+    opacity: 1;
+}
+
+#signup-confirm-password .bi.bi-eye.active {
+    opacity: 1;
+}
+
+.login-bottom-buttons, .signup-bottom-buttons {
     display: flex;
     /* justify-content: space-between; */
     position: absolute;
@@ -108,6 +127,26 @@
 }
 
 .login-bottom-buttons .login-button {
+    background-color: var(--main-ibm-blue);
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    width: 50%;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.signup-bottom-buttons .cancel-button {
+    background-color: var(--form-stroke);
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    width: 50%;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.signup-bottom-buttons .signup-button {
     background-color: var(--main-ibm-blue);
     padding: 1rem 1rem;
     font-size: 1rem;
