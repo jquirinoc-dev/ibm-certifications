@@ -9,7 +9,7 @@ export const LoginForm = () => {
         setPasswordFocus(!passwordFocus);
     }
 
-    const handleEyeShow = () => {
+    const handleEyeShow = ( e ) => {
         setPasswordShow(!passwordShow);
         passwordInput.type = passwordShow ? 'password' : 'text';
     }
@@ -21,7 +21,7 @@ export const LoginForm = () => {
                     <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username" />
                 </div>
-                <div className="form-group" onMouseEnter={handleFocus} onMouseLeave={handleFocus}>
+                <div className="form-group" onMouseEnter={handleFocus} onMouseLeave={handleFocus} id='login-password'>
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" id="password" />
                     <svg
