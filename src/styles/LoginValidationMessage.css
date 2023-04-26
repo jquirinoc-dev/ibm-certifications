@@ -1,0 +1,23 @@
+.login-validation-message {
+    display: flex;
+    position: absolute;
+    bottom: 100px;
+    background-color: var(--form-input-background);
+    padding: 0.9rem 0.5rem;
+}
+
+.login-validation-message .error-message {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+}
+
+.login-validation-message .close {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+

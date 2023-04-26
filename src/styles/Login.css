@@ -26,6 +26,7 @@
 .login-form, .signup-form {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .signup-form {
@@ -117,7 +118,7 @@
 }
 
 .login-bottom-buttons .signup-button {
-    background-color: var(--form-stroke);
+    background-color: var(--main-ibm-blue);
     padding: 1rem 1rem;
     font-size: 1rem;
     width: 50%;
@@ -127,7 +128,7 @@
 }
 
 .login-bottom-buttons .login-button {
-    background-color: var(--main-ibm-blue);
+    background-color: var(--form-stroke);
     padding: 1rem 1rem;
     font-size: 1rem;
     width: 50%;
