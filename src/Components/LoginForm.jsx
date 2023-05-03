@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import * as validations from '../formValidations'
 import { LoginValidationMessage } from './LoginValidationMessage';
 
-export const LoginForm = ({ onUserChange, onPasswordChange }) => {
+export const LoginForm = ( ) => {
     const [passwordFocus, setPasswordFocus] = useState(false);
     const [passwordShow, setPasswordShow] = useState(false);
     const passwordInput = document.getElementById('password');
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [errorShow, setErrorShow] = useState(false);
 
     const handleFocus = () => {
         setPasswordFocus(!passwordFocus);
@@ -18,29 +20,27 @@ export const LoginForm = ({ onUserChange, onPasswordChange }) => {
         setPasswordShow(!passwordShow);
         passwordInput.type = passwordShow ? 'password' : 'text';
     }
-
-    useEffect(() => {
-        onUserChange(username);
-    }, [username, onUserChange]);
-
-    useEffect(() => {
-        onPasswordChange(password);
-    }, [password, onPasswordChange]);
-
+    
+    const handleMessageVisibility = () => {
+        setErrorShow(false);
+    }
 
 
   return (
     <>
+        
         <form action="" className="login-form">
                     <h1>Log in</h1>
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="mail">Email</label>
                         <input 
                             type="text" 
-                            name="username" 
-                            id="username" 
-                            onChange={ (e) => validations.handleUsernameChange(e, setUsername, setErrorMessage) } 
-                            value={ username }/>
+                            name="mail" 
+                            id="mail" 
+                            onChange={ (e) => validations.handleEmailChange(e, setEmail, setErrorMessage, setErrorShow) } 
+                            value={ email }
+                            autoComplete='off'
+                        />
                     </div>
                     <div className="form-group" onMouseEnter={handleFocus} onMouseLeave={handleFocus} id='login-password'>
                         <label htmlFor="password">Password</label>
@@ -48,7 +48,7 @@ export const LoginForm = ({ onUserChange, onPasswordChange }) => {
                             type="password" 
                             name="password" 
                             id="password" 
-                            onChange={ (e) => validations.handlePasswordChange(e, setPassword, setErrorMessage) } 
+                            onChange={ (e) => validations.handleLoginPasswordChange(e, setPassword) } 
                             value={ password }/>
                         <svg
                             onClick={handleEyeShow}
@@ -62,8 +62,13 @@ export const LoginForm = ({ onUserChange, onPasswordChange }) => {
                             <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                         </svg>
                     </div>
+                    
         </form>
-        <LoginValidationMessage/>
+        <div className="login-button" onClick={ (e) => validations.handleLoginClick(e, email, password, errorMessage, setErrorMessage, setErrorShow) }>
+            Log in
+        </div>
+        <LoginValidationMessage message={ errorMessage } visible={ errorShow } handleVisibility={ handleMessageVisibility }/>
+        
     </>
   )
 }

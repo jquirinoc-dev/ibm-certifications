@@ -1,17 +1,35 @@
 .login-validation-message {
     display: flex;
+    justify-content: space-between;
     position: absolute;
+    width: 250px;
     bottom: 100px;
     background-color: var(--form-input-background);
-    padding: 0.9rem 0.5rem;
+    padding: 0.7rem 0.5rem;
+    border:  0.1px solid var(--form-error-border-color);
+    border-left: 5px solid var(--form-error-border-color);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.create-button-wrapper .login-validation-message {
+    bottom: 0.25rem;
+    right: 27%;
+    width: 300px;
+
+}
+
+.login-validation-message.active {
+    opacity: 1;
 }
 
 .login-validation-message .error-message {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #FFFFFF;
     margin-left: 0.5rem;
-    margin-right: 2rem;
+    margin-right: auto;
+    
 }
 
 .login-validation-message .close {
