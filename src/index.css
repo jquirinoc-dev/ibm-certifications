@@ -9,11 +9,20 @@
   --grey-highlight: #393939;
   --form-text-color: #F4F4F4;
   --form-label-color: #C6C6C6;
+  --form-error-border-color: #FA4D56;
   font-family: 'IBM Plex Sans';
   font-weight: 300;
+}
+
+html {
+  overflow-y: scroll;
 }
 
 body {
   margin: 0;
   background-color: var(--primary-dark-background);
+}
+
+h1 {
+  color: white;
 }

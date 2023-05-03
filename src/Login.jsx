@@ -1,17 +1,25 @@
 import './styles/Login.css'
+import React, { useEffect, useState } from 'react'
 import ibmLogo from './assets/ibm-logo-white.png'
 import { LoginForm } from './Components/LoginForm';
+import { LoginValidationMessage } from './Components/LoginValidationMessage';
+import * as validations from './formValidations'
+import { useNavigate } from 'react-router-dom'
+
 
 export const Login = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/dashboard');
+    }
+  }, [])
 
   return (
     <div className="login-wrapper">
         <div className="left-login-form">
             <LoginForm />
-            <div className="login-bottom-buttons">
-                <div className="signup-button">Sign up</div>
-                <div className="login-button">Log in</div>
-            </div>
         </div>
         <div className="right-ibm-logo">
             <img src={ ibmLogo } alt="" />

@@ -26,6 +26,10 @@
 .login-form, .signup-form {
     display: flex;
     flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 0 4rem;
+    align-items: center;
 }
 
 .signup-form {
@@ -36,7 +40,8 @@
     color: white;
     font-size: 5.5rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    width: 300px;
 }
 
 .signup-form h1 {
@@ -96,6 +101,14 @@
     opacity: 1;
 }
 
+#create-password .bi.bi-eye.active {
+    opacity: 1;
+}
+
+#confirm-create-password .bi.bi-eye.active {
+    opacity: 1;
+}
+
 #signup-password .bi.bi-eye.active {
     opacity: 1;
 }
@@ -117,7 +130,7 @@
 }
 
 .login-bottom-buttons .signup-button {
-    background-color: var(--form-stroke);
+    background-color: var(--main-ibm-blue);
     padding: 1rem 1rem;
     font-size: 1rem;
     width: 50%;
@@ -126,14 +139,23 @@
     transition: all 0.2s ease;
 }
 
-.login-bottom-buttons .login-button {
-    background-color: var(--main-ibm-blue);
+.login-button {
+    /* display: flex; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    cursor: pointer;
+    width: 50%;
+    background-color: var(--form-stroke);
+    font-family: 'IBM Plex Sans';
+    color: #FFFFFF;
     padding: 1rem 1rem;
     font-size: 1rem;
-    width: 50%;
     font-weight: 400;
     text-decoration: none;
     transition: all 0.2s ease;
+    border: none;
 }
 
 .signup-bottom-buttons .cancel-button {
