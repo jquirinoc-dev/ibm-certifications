@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import './styles/Dashboard.css'
+import { useEffect } from 'react'
+import { EmployeesList } from './Components/EmployeesList'
 
 export const Dashboard = () => {
 
@@ -15,6 +17,9 @@ export const Dashboard = () => {
     }, [])
 
   return (
-    <div style={{ color: 'white', padding: 20 }}>Dashboard</div>
+    <div className='dashboard-wrapper'>
+      Dashboard
+      <EmployeesList />
+    </div>
   )
 }

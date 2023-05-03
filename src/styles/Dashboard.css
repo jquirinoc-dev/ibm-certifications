@@ -1,0 +1,11 @@
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10rem 5rem;
+    /* overflow: hidden; */
+    transition: height 0.3s ease-in-out;
+}
