@@ -1,0 +1,194 @@
+.admin-console-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10rem 5rem;
+    /* overflow: hidden; */
+    transition: height 0.3s ease-in-out;
+}
+
+.admin-console-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    background-color: var(--form-input-background);
+    
+}
+
+.admin-console-option .collapsed-top {
+    display: flex;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
+
+.admin-console-option .collapsed-top h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    margin-right: auto;
+}
+
+.admin-console-option .collapsed-top img {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-right: 0;
+    user-select: none;
+}
+
+.admin-console-option.expanded .collapsed-top img {
+    transform: rotate(-180deg);
+    /* background-color: white; */
+}
+
+.admin-console-option .expanded-content {
+  opacity: 0;
+  height: 0;
+  /* overflow: hidden; */
+  width: 100%;
+  position: relative;
+}
+
+.admin-console-option.expanded .expanded-content {
+    height: auto;
+    opacity: 1;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1000px) {
+    .admin-console-wrapper {
+        padding: 10rem 2rem;
+    }
+    .admin-console-option {
+        width: 100%;
+    }
+}
+
+.expanded-content form {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4rem;
+    padding: 1rem 1.5rem;
+}
+
+.user-create-form-row, .user-permission-form-row {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+
+.user-create-form-group {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 0.5rem;
+    margin-right: 2.5rem;
+    position: relative;
+}
+
+.user-create-form-group label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--form-label-color);
+}
+
+.user-create-form-group input {
+    background-color: var(--form-input-background);
+    border: none;
+    border-bottom: 1px solid var(--form-stroke);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--form-text-color);
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans';
+}
+
+.user-create-form-group input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--main-ibm-blue);
+}
+
+.user-create-form-group select {
+    background-color: var(--form-input-background);
+    border: none;
+    border-bottom: 1px solid var(--form-stroke);
+    padding: 0.5rem;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--form-text-color);
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans';
+}
+
+.user-create-form-group select:focus {
+    outline: none;
+    border-bottom: 1px solid var(--main-ibm-blue);
+}
+
+.user-create-form-group select option{
+    background-color: var(--form-input-background);
+    border: none;
+    border-bottom: 1px solid var(--form-stroke);
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--form-text-color);
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans';
+}
+
+.user-create-form-group:last-child {
+    margin-right: 0;
+}
+
+.create-button-wrapper, .permission-button-wrapper {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.create-button-wrapper .create-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    cursor: pointer;
+    width: 25%;
+    background-color: var(--main-ibm-blue);
+    font-family: 'IBM Plex Sans';
+    color: #FFFFFF;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.permission-button-wrapper .permission-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    cursor: pointer;
+    width: 25%;
+    background-color: var(--main-ibm-blue);
+    font-family: 'IBM Plex Sans';
+    color: #FFFFFF;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
