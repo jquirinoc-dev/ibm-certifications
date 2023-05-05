@@ -7,21 +7,27 @@ import { AdminConsole } from "./AdminConsole";
 
 
 function App() {
-  return (
-    <div className="App">
-
+  if (!localStorage.getItem('token')) {
+    return (
       <Router>
-      {window.location.pathname !== '/login' && window.location.pathname !== '/'  && <TopNavBar />}
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin-console" element={<AdminConsole />} />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Router>
-
-    </div>
-  )
+    )
+  } else {
+    return (
+      <Router>
+        <TopNavBar />
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin-console" element={<AdminConsole />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />  
+        </Routes>
+      </Router>
+    )
+  }
 }
 
 export default App

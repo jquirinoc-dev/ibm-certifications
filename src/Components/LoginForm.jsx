@@ -12,6 +12,12 @@ export const LoginForm = ( ) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [errorShow, setErrorShow] = useState(false);
 
+    const handleEnterKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            validations.handleLoginClick(e, email, password, errorMessage, setErrorMessage, setErrorShow);
+        }
+    }
+
     const handleFocus = () => {
         setPasswordFocus(!passwordFocus);
     }
@@ -29,7 +35,7 @@ export const LoginForm = ( ) => {
   return (
     <>
         
-        <form action="" className="login-form">
+        <form action="" className="login-form" onKeyDown={handleEnterKeyDown}>
                     <h1>Log in</h1>
                     <div className="form-group">
                         <label htmlFor="mail">Email</label>
