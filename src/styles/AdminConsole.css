@@ -62,14 +62,6 @@
     transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 1000px) {
-    .admin-console-wrapper {
-        padding: 10rem 2rem;
-    }
-    .admin-console-option {
-        width: 100%;
-    }
-}
 
 .expanded-content form {
     width: 100%;
@@ -252,4 +244,11 @@
     background-color: var(--main-ibm-blue);
 }
 
-
+@media screen and (max-width: 1000px) {
+    .admin-console-wrapper {
+        padding: 10rem 2rem;
+    }
+    .admin-console-option {
+        width: 100%;
+    }
+}
