@@ -78,9 +78,17 @@
     padding: 1rem 1.5rem;
 }
 
-.user-create-form-row, .user-permission-form-row {
+.user-create-form-row, .user-permission-form-row, .upload-file-form-row {
     display: flex;
     margin-bottom: 1rem;
+}
+
+.upload-file-form-row {
+    margin-left: 2rem;
+}
+
+.upload-file-form-row .user-create-form-group {
+    width: 250px;
 }
 
 
@@ -150,7 +158,7 @@
     margin-right: 0;
 }
 
-.create-button-wrapper, .permission-button-wrapper {
+.create-button-wrapper, .permission-button-wrapper, .upload-file-button-wrapper {
     display: flex;
     align-items: flex-end;
     width: 100%;
@@ -191,4 +199,57 @@
     transition: all 0.2s ease;
     border: none;
 }
+
+.upload-file-button-wrapper .upload-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    cursor: pointer;
+    width: 25%;
+    background-color: var(--main-ibm-blue);
+    font-family: 'IBM Plex Sans';
+    color: #FFFFFF;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.upload-file-form-row h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    margin-right: auto;
+}
+
+
+
+.upload-file-form-row p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: white;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.upload-file-form-row label {
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;    
+    align-items: end;
+}
+
+.upload-file-form-row label .upload-file {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: white;
+    padding: 1rem;
+    width: 120px;
+    /* margin-right: auto; */
+    background-color: var(--main-ibm-blue);
+}
+
 
