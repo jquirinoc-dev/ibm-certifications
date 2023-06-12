@@ -122,7 +122,4 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
     // Request here
     console.log('Creating account...');
     setErrorShow(false);
-
-
-
-  }
+}

@@ -3,10 +3,9 @@ export const handleExpand = ( setIsExpanded, isExpanded ) => {
   setIsExpanded(!isExpanded);
 }
 
-
 export const handleMessageVisibility = ( setErrorShow ) => {
-    setErrorShow(false);
-  }
+  setErrorShow(false);
+}
 
 export const handleFileUpload = (e, setFile, setIsFileUploaded) => {
   setFile(e.target.files[0]);
