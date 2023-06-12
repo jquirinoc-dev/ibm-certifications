@@ -74,13 +74,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
   }
   
 
-  export const handleLoginClick = async ( e, email, password, errorMessage, setErrorMessage, setErrorShow ) => {
-    // prevent default
-    e.preventDefault();
-
-    // if ( errorMessage ) {
-    //   return;
-    // }
+  export const handleLoginClick = async ( email, password, setErrorMessage, setErrorShow ) => {
 
     if (email === '' || password === '') {
       setErrorMessage('Missing fields');
@@ -99,7 +93,6 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
       // history.pushState(null, null, '/dashboard');
     })
     .catch((error) => {
-      console.log(error);
       setErrorMessage(error.response.data.error);
       setErrorShow(true);
     });
@@ -163,8 +156,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
 
   }
 
-  export const handleUserPermissionsChangeClick = (e, email, setEmail, userType, setUserType, errrorMessage, setErrorMessage, setErrorShow, setIsExpanded) => {
-      e.preventDefault();
+  export const handleUserPermissionsChangeClick = ( email, setEmail, userType, setUserType, errrorMessage, setErrorMessage, setErrorShow, setIsExpanded) => {
 
       if ( errrorMessage ) {
         return;
