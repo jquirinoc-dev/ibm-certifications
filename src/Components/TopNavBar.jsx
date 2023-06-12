@@ -1,16 +1,39 @@
 import '../styles/TopNavBar.css'
 import ibmLogo from '../assets/ibm-logo-white.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const options = ['Admin console', 'Dashboard'];
 
 
 export const TopNavBar = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
   const [NavBarTitle, setNavBarTitle] = useState(options[1]);
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+      const token = localStorage.getItem('token');
+      axios.get('http://206.81.29.146:8000/user/me', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+          }
+          })
+          .then((response) => {
+            console.log(response);
+            if (response.data.role === 'admin') {
+              setIsAdmin(true);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          }
+        )
+  }, [])
+
+
+      
   const handleLeftButtonClick = () => {
     if (selectedOption === options[0]) {
       setSelectedOption(options[1]);
@@ -38,9 +61,13 @@ export const TopNavBar = () => {
             <img src={ ibmLogo } alt="IBM" />
             <h2>{ NavBarTitle }</h2>
         </div>
-        <button className='top-nav-bar-goback-button' onClick={ handleLeftButtonClick }>
-          { selectedOption }
-        </button>
+
+        { isAdmin &&
+                    <button className="top-nav-bar-goback-button" onClick={ handleLeftButtonClick }>
+                        { selectedOption }
+                    </button>
+        }
+        
         <button className="top-nav-bar-signout-button" onClick={ handleSignOutButtonClick }>
             Sign out
         </button>

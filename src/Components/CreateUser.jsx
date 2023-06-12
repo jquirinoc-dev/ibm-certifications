@@ -40,6 +40,16 @@ export const CreateUser = () => {
     confirmPasswordInput.type = passwordShow ? 'password' : 'text';
   }
 
+  const collapseOnSubmit = () => {
+    handleExpand();
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setUserType('');
+  }
+
+
 
 
 
@@ -133,7 +143,10 @@ export const CreateUser = () => {
                 
             </form>
             <div className="create-button-wrapper" >
-                <div className='create-button' onClick={(e) => validations.handleCreateAccountClick(e, username, email, password, confirmPassword, userType, errorMessage, setErrorMessage, setErrorShow)}>
+                <div className='create-button' onClick={(e) => validations.handleCreateAccountClick(e, username, email, password, confirmPassword, 
+                                                                                                    userType, errorMessage, setErrorMessage, setErrorShow,
+                                                                                                    setUsername, setEmail, setPassword, setConfirmPassword, 
+                                                                                                    setUserType, setIsExpanded )}>
                     Create account
                 </div>
                 <LoginValidationMessage message={ errorMessage } visible={ errorShow } handleVisibility={ handleMessageVisibility }/>

@@ -192,6 +192,16 @@
     border: none;
 }
 
+.permission-button-wrapper .login-validation-message {
+    bottom: 0.25rem;
+    right: 27%;
+}
+
+.upload-file-button-wrapper .login-validation-message {
+    bottom: 0.25rem;
+    right: 27%;
+}
+
 .upload-file-button-wrapper .upload-button {
     position: absolute;
     bottom: 0;
