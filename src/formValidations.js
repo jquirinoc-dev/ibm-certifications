@@ -74,7 +74,9 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
   }
   
 
-  export const handleLoginClick = async ( email, password, setErrorMessage, setErrorShow ) => {
+  export const handleLoginClick = async ( e, email, password, setErrorMessage, setErrorShow ) => {
+
+    e.preventDefault();
 
     if (email === '' || password === '') {
       setErrorMessage('Missing fields');
@@ -119,7 +121,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
     // Request here
     console.log('Creating account...');
     setErrorShow(false);
-}
+
 
     if (password !== passwordConfirm) {
       setErrorMessage('Passwords do not match');
@@ -162,7 +164,9 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
 
   }
 
-  export const handleUserPermissionsChangeClick = ( email, setEmail, userType, setUserType, errrorMessage, setErrorMessage, setErrorShow, setIsExpanded) => {
+  export const handleUserPermissionsChangeClick = ( e, email, setEmail, userType, setUserType, errrorMessage, setErrorMessage, setErrorShow, setIsExpanded) => {
+
+    e.preventDefault();
 
       if ( errrorMessage ) {
         return;
