@@ -31,7 +31,7 @@ export const BarChart = () => {
                     Authorization: `Bearer ${token}`
                 }
             };
-            axios.get('http://206.81.29.146:8000/app/certificaciones', axiosConfig).then((res) => {
+            axios.get('http://137.184.85.31:8000/app/certificaciones', axiosConfig).then((res) => {
                 
                 var arrCertifications = [];
                 var certificationsCountPairs = [];

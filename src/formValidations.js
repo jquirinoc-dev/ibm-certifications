@@ -84,7 +84,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
       return;
     }
 
-    await axios.post('http://206.81.29.146:8000/user/login', {
+    await axios.post('http://137.184.85.31:8000/user/login', {
       email: email,
       password: password,
       is_new_user: false
@@ -136,7 +136,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
       role: userType
     }
 
-    await axios.post('http://206.81.29.146:8000/user/create-user', user, {
+    await axios.post('http://137.184.85.31:8000/user/create-user', user, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -180,7 +180,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
 
 
 
-    axios.get(`http://206.81.29.146:8000/user/users?email=${email}`, {
+    axios.get(`http://137.184.85.31:8000/user/users?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
@@ -200,7 +200,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
 
       console.log(id, user);
 
-      axios.put(`http://206.81.29.146:8000/user/users/${id}`, user, {
+      axios.put(`http://137.184.85.31:8000/user/users/${id}`, user, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -231,7 +231,7 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
     const formData = new FormData();
     formData.append('data', file);
 
-    axios.post('http://206.81.29.146:8000/app/upload', formData, {
+    axios.post('http://137.184.85.31:8000/app/upload', formData, {
       headers: {
         'content-type': 'multipart/form-data',
         'Authorization': `Bearer ${localStorage.getItem('token')}`

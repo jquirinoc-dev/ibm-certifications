@@ -15,7 +15,7 @@ export const TopNavBar = () => {
 
   useEffect(() => {
       const token = localStorage.getItem('token');
-      axios.get('http://206.81.29.146:8000/user/me', {
+      axios.get('http://137.184.85.31:8000/user/me', {
         headers: {
           'Authorization': `Bearer ${token}`
           }
