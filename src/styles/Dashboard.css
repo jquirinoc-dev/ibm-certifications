@@ -1,11 +1,39 @@
 .dashboard-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 10rem 5rem;
     /* overflow: hidden; */
     transition: height 0.3s ease-in-out;
+}
+
+.chart-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+}
+
+.chart-style {
+    background-color: #262626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 615px;
+    height: 500px;
+    padding: 50px;
+}
+
+.chart-title {
+    background-color: #262626;
+    color: white;
+    width: 615px;
+    height: 100px;
+    padding: 20px;
+}
+
+.table-style {
+    width: 100%;
 }

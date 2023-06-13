@@ -7,7 +7,7 @@ import { UploadCertificationsFile } from './Components/UploadCertificationsFile'
 export const AdminConsole = () => {
   return (
     <div className="admin-console-wrapper">
-        <UpdateCertifications />
+        {/* <UpdateCertifications /> */}
         <CreateUser />
         <ChangeUserPermissions />
         <UploadCertificationsFile />

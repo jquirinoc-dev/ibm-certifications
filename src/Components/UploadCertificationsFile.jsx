@@ -2,27 +2,37 @@ import { useState } from 'react';
 import dropDown from '../assets/drop-down-arrow.svg';
 import { LoginValidationMessage } from './LoginValidationMessage';
 import * as UI from '../HandleUIs'
+import * as validations from '../formValidations';
+import { UploadStateMessage } from './UploadStateMessage';
 
 export const UploadCertificationsFile = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [errorShow, setErrorShow] = useState(false);
   const [file, setFile] = useState(null);
-  const [isFileUploaded, setIsFileUploaded] = useState(false);
+  const [isFileSelected, setIsFileSelected] = useState(false);
 
   const collapse = () => {
     UI.handleExpand(setIsExpanded, isExpanded);
   }
 
   const upload = (e) => {
-    UI.handleFileUpload(e, setFile, setIsFileUploaded);
+    UI.handleFileSelect(e, setFile, setIsFileSelected);
   }
+
+  const submit = () => {
+    validations.handleFileFormSubmit(file, setErrorMessage, setErrorShow, setIsExpanded);
+    }
+
+    const handleMessageVisibility = () => {
+        setErrorShow(false);
+    }
 
 
   return (
     <div className={`admin-console-option ${isExpanded ? 'expanded' : ''}`}>
         <div className="collapsed-top" onClick={ collapse }>
-            <h3>Update Certifications</h3>
+            <h3>Upload certifications file</h3>
             <img src={ dropDown } alt="DropDown"/>
         </div>
         <div className="expanded-content">
@@ -30,13 +40,13 @@ export const UploadCertificationsFile = () => {
                 <div className="upload-file-form-row">
                     <div className="user-create-form-group">
                         <h2>Upload files</h2>
-                        <p>Max file size is 500kb. Supported file types are .jpg and .png.</p>
+                        <p>Supported file type is .csv.</p>
                         <label htmlFor="file">
                             <div className="upload-file">
                                 Add file
                             </div>
                             {
-                             isFileUploaded ? <h4>{file.name}</h4> : null
+                             isFileSelected ? <h4>{file.name}</h4> : null
                             }
                         </label>
                         
@@ -45,14 +55,16 @@ export const UploadCertificationsFile = () => {
                             type="file"
                             id="file"
                             name="file"
+                            accept=".csv"
                         />
                     </div>
                 </div> 
             </form>
             <div className="upload-file-button-wrapper" >
-                <div className='upload-button' >
+                <div className='upload-button' onClick={submit}>
                     Upload file
                 </div>
+                <UploadStateMessage message={errorMessage} visible={errorShow} handleVisibility={handleMessageVisibility}/>
             </div>
         </div>
     </div>
