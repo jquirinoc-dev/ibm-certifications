@@ -10,7 +10,7 @@ export const Dashboard = () => {
   return (
     <div className='dashboard-wrapper'>
       <div className='chart-wrapper'>
-        <div className='chart-title'>Work Location</div>
+        <div className='chart-title'>Top Certifications</div>
         <div className='chart-title'>Type of Certifications</div>
         <BarChart/>
         <DoughnutChart/>
