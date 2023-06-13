@@ -62,14 +62,6 @@
     transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 1000px) {
-    .admin-console-wrapper {
-        padding: 10rem 2rem;
-    }
-    .admin-console-option {
-        width: 100%;
-    }
-}
 
 .expanded-content form {
     width: 100%;
@@ -200,6 +192,16 @@
     border: none;
 }
 
+.permission-button-wrapper .login-validation-message {
+    bottom: 0.25rem;
+    right: 27%;
+}
+
+.upload-file-button-wrapper .login-validation-message {
+    bottom: 0.25rem;
+    right: 27%;
+}
+
 .upload-file-button-wrapper .upload-button {
     position: absolute;
     bottom: 0;
@@ -252,4 +254,11 @@
     background-color: var(--main-ibm-blue);
 }
 
-
+@media screen and (max-width: 1000px) {
+    .admin-console-wrapper {
+        padding: 10rem 2rem;
+    }
+    .admin-console-option {
+        width: 100%;
+    }
+}
