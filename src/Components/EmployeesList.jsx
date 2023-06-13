@@ -1,8 +1,8 @@
-import '../styles/Employees.css'
+import '../styles/Dashboard.css'
 import DataTable from "react-data-table-component"
 import { createTheme } from 'react-data-table-component';
-import { Alignment } from 'react-data-table-component';
 import { useState, useEffect } from "react"
+import axios from 'axios';
 
 createTheme('dark', {
   action: {
@@ -62,71 +62,70 @@ const customStyles = {
 }
 
 export const EmployeesList = () => {
-  const [data, setData] = useState([])
+
+  const [listData, setListData] = useState([]);
   const [loading, setLoading] = useState(false)
-  const [perPage, setPerPage] = useState(10)
 
   const columns = [
-      {
-      name: "Header",
-      selector: (row) => row.title,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
-      {
-      name: "Header",
-      selector: (row) => row.content,
-      },
+    {
+    name: "UID",
+    selector: (row) => row.uid,
+    },
+    {
+    name: "Department",
+    selector: (row) => row.org,
+    },
+    {
+    name: "Location",
+    selector: (row) => row.work_location,
+    },
+    {
+    name: "Certification",
+    selector: (row) => row.certifications,
+    },
+    {
+    name: "Date",
+    selector: (row) => row.issue_date,
+    },
+    {
+    name: "Type",
+    selector: (row) => row.type,
+    },
   ]
 
   useEffect(() => {
-    fetchTableData()
-  }, [])
-
-  async function fetchTableData() {
     setLoading(true)
-    const URL = "https://jsonplaceholder.typicode.com/todos"
-    const response = await fetch(URL)
-
-    const users = await response.json()
-    setData(users)
-    setLoading(false)
-  }
-
+    const token = localStorage.getItem("token");
+    if (token) {
+      const axiosConfig = {
+        headers:{
+          Authorization: `Bearer ${token}`
+        }
+      };
+      axios.get('http://206.81.29.146:8000/app/certificaciones', axiosConfig).then((res) => {
+        
+        const responseData = res.data.results;
+        setListData(responseData)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      })
+    }
+  },[])
+  
   return (
-    <div class='table-style'>
+    <div className='table-style'>
       <DataTable
-          title="Employees"
-          columns={columns}
-          data={data}
-          theme='dark'
-          customStyles={customStyles}
-          progressPending={loading}
-          pagination
-          paginationRowsPerPageOptions={[10, 25, 50, 100]}
-          highlightOnHover
+        title="Certifications"
+        columns={columns}
+        data={listData}
+        theme='dark'
+        customStyles={customStyles}
+        progressPending={loading}
+        pagination
+        paginationRowsPerPageOptions={[10, 25, 50, 100]}
+        highlightOnHover
       />
     </div>
   )

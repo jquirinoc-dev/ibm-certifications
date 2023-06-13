@@ -115,6 +115,12 @@ export const handleUsernameChange = (e, setUsername, setErrorMessage, setErrorSh
       return;
     }
 
+
+    // Request here
+    console.log('Creating account...');
+    setErrorShow(false);
+}
+
     if (password !== passwordConfirm) {
       setErrorMessage('Passwords do not match');
       setErrorShow(true);
