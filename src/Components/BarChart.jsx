@@ -16,11 +16,6 @@ const options = {
         legend: {
             display: false
         },
-        scales: {
-            xAxes: [{
-                barPercentage: 0.3
-            }]
-        }
     }
 }
 
@@ -37,21 +32,41 @@ export const BarChart = () => {
                 }
             };
             axios.get('http://206.81.29.146:8000/app/certificaciones', axiosConfig).then((res) => {
-                const responseData = res.data.results;
-                let locationCount = 0;
+                
+                var arrCertifications = [];
+                var certificationsCountPairs = [];
+                var sortCertifications = [];
+                var topCertifications = [];
 
-                for (let i = 0; i < responseData.length; i++) {
-                    if (responseData[i].work_location === 'Guadalajara, JAL, Mexico') {
-                        locationCount++;
-                    }
+                for (let i = 0; i < res.data.results.length; i++) {
+                    var certification = res.data.results[i].certifications;
+                    arrCertifications[certification] = arrCertifications[certification] ? arrCertifications[certification] + 1 : 1
                 }
 
+                for (certification in arrCertifications) {
+                    certificationsCountPairs.push({certification : certification,  count : arrCertifications[certification]});
+                }
+
+                sortCertifications = certificationsCountPairs.sort(function(a, b) {
+                    return b.count - a.count;
+                })
+
+                topCertifications = sortCertifications.slice(0, 5);
+
+                var labelsCertifications = topCertifications.map(function(item) {
+                    return item.certification;
+                });
+                
+                var counts = topCertifications.map(function(item) {
+                    return item.count;
+                });
+
                 setChartData({
-                    labels: ['Guadalajara, Jal'],
+                    labels: labelsCertifications,
                     datasets:[{
-                        data: [locationCount],
+                        data: counts,
                         backgroundColor: ['#3290ED'],
-                        barPercentage: 0.2,
+                        barPercentage: 0.5,
                     }]
                 })
             })
